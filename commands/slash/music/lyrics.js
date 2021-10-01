@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { Lyrics } = require("@discord-player/extractor");
+const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
-const lyricsFinder = Lyrics.init();
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("lyrics")
@@ -32,16 +31,27 @@ module.exports = {
 				ephemeral: true,
 			});
 		if (queue) {
-			let song = queue.nowPlaying();
-			let lyrics = await lyricsFinder.search(song.title);
-			let x = lyrics ? lyrics.lyrics : "No lyrics found";
+			const song = queue.nowPlaying();
+			const json = await fetch(
+				`https://api.popcat.xyz/lyrics?song=${encodeURIComponent(song)}`
+			).then((r) => r.json());
+			if (json.error) {
+				return await interaction.editReply(
+					`:x: | No lyrics found for this song.`
+				);
+			}
+			const url = `${song.replace(" ", "+")}`;
+			let lyrics = json.lyrics;
+			if (lyrics.length > 4096)
+				lyrics = `:x: | Too long to show, visit **[here](https://popcat.xyz/lyrics/${url})** For full lyrics`;
+			const embed = new MessageEmbed()
+				.setTitle(json.full_title === "none" ? json.title : json.full_title)
+				.setURL(json.url)
+				.setThumbnail(json.image)
+				.setDescription("Lyrics:\n\n" + lyrics)
+				.setColor(`RANDOM`);
 
-			let lyricsEmbed = new MessageEmbed()
-				.setColor(`RANDOM`)
-				.setTitle(`Lyrics for ${song.title}`)
-				.setDescription(x);
-
-			await interaction.editReply({ embeds: [lyricsEmbed] });
+			await interaction.editReply({ embeds: [embed] });
 		}
 	},
 };

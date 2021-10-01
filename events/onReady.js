@@ -4,6 +4,8 @@ module.exports = {
 	once: true,
 
 	execute(client) {
+		client.user.setActivity("to /help", { type: "LISTENING" });
+
 		console.log(
 			chalk.yellowBright.bold(`
   ███╗   ███╗██╗   ██╗███████╗██╗ ██████╗ ██████╗                               

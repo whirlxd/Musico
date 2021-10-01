@@ -81,7 +81,7 @@ For support, you can join our discord server by clicking [here](https://discord.
 | Feature            | Status |
 | ------------------ | ------ |
 | Queue With Buttons | ❌     |
-| Change Lyrics API  | ❌     |
+| Change Lyrics API  | ✔      |
 | Website            | ✔      |
 
 ## Configuration
