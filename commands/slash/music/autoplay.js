@@ -32,6 +32,26 @@ module.exports = {
 			});
 		}
 		if (queue) {
+			const db = interaction.client.db;
+			const guild = interaction.guildId;
+			const roll = db.get(`${guild}_dj_role`);
+
+			if (
+				interaction.user.id !== queue.nowPlaying().requestedBy.id &&
+				!interaction.member.roles.cache.has(roll)
+			) {
+				return interaction.editReply(
+					":x: | This command can only be used by the person who played the current track or someone who has your guild's DJ role"
+				);
+			}
+			if (
+				interaction.user.id !== queue.nowPlaying().requestedBy.id &&
+				!interaction.member.roles.cache.has(roll)
+			) {
+				return interaction.editReply(
+					":x: | This command can only be used by the person who played the current track or someone who has your guild's DJ role"
+				);
+			}
 			const lol = interaction.options.getBoolean("enabled");
 			if (lol) {
 				const x = await queue.setRepeatMode(QueueRepeatMode.AUTOPLAY);

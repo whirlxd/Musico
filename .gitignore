@@ -1,7 +1,7 @@
 # Custom
-.vscode/
 json.sqlite
 musico.config.json
+.cache
 # Logs
 logs
 *.log

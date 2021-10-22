@@ -1,14 +1,29 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-
+const { MessageButton: Btn, MessageActionRow: Row } = require("discord.js");
 module.exports = {
-	// The data needed to register slash commands to Discord.
-	data: new SlashCommandBuilder()
-		.setName("skip")
-		.setDescription("Skip your current playing song"),
-
-	async execute(interaction) {
+	execute: async (interaction) => {
 		const player = interaction.client.player;
-
+		const rw = new Row().addComponents(
+			new Btn()
+				.setCustomId("eight_d")
+				.setEmoji(`🎱`)
+				.setLabel("8D")
+				.setStyle("PRIMARY"),
+			new Btn()
+				.setCustomId("bassboost")
+				.setEmoji(`🎧`)
+				.setLabel("BassBoost")
+				.setStyle("PRIMARY"),
+			new Btn()
+				.setCustomId("reverse")
+				.setEmoji(`◀️`)
+				.setLabel("Reverse")
+				.setStyle("PRIMARY"),
+			new Btn()
+				.setCustomId("earrape")
+				.setEmoji(`🧨`)
+				.setLabel("Earrape")
+				.setStyle("PRIMARY")
+		);
 		if (!interaction.member.voice.channel)
 			return interaction.editReply({
 				content: `:x:|  You need to be in a voice channel to do that!`,
@@ -24,12 +39,10 @@ module.exports = {
 				content: `❌ | You need to be in the same voice channel as me to do that`,
 				ephemeral: true,
 			});
-
 		const queue = player.getQueue(interaction.guildId);
 		if (!queue || !queue.playing)
 			return interaction.editReply({
-				content: "❌ | No music is playing in this guild",
-				ephemeral: true,
+				content: "❌ | No music is being played!",
 			});
 		const db = interaction.client.db;
 		const guild = interaction.guildId;
@@ -43,16 +56,10 @@ module.exports = {
 				":x: | This command can only be used by the person who played the current track or someone who has your guild's DJ role"
 			);
 		}
-
-		const currentTrack = queue.nowPlaying().title;
-		if (queue.tracks.length < 1) {
-			return interaction.editReply(`:x: | Only 1 song in your queue`);
-		}
-		const success = queue.skip();
-		return interaction.editReply({
-			content: success
-				? ` ⏭ | Skipped **${currentTrack}**!`
-				: "❌ | Failed to do that!",
+		interaction.editReply({
+			content: `Click one below`,
+			components: [rw],
+			ephemeral: true,
 		});
 	},
 };

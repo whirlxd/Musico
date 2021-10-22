@@ -1,4 +1,4 @@
-<h1 align="center"> Musico 🎶</h1>
+<h1 align="center">Musico 🎶</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
@@ -21,11 +21,11 @@
   </a>
 </p>
 
-> A discord bot that i made in 30+ hours to spice up your discord server with music system
+> An epik discord music bot made to spice up your discord experience with amazing commands and filters!
 
 ### 🏠 [Homepage](https://musico.whirl.codes)
 
-### ✨ [Demo](https://discord.com/api/oauth2/authorize?client_id=876761541481992212&permissions=2184301889&redirect_uri=https%3A%2F%2Fmusico.whirl.codes&scope=bot%20applications.commands)
+### 🎨 [Examples](https://github.com/Whirl21/Musico/tree/v3/Examples)
 
 ### 📗 [Guide](https://whirl.codes/blog/musico-guide)
 
@@ -34,31 +34,32 @@
 - High Quality & Fast
 - Small Website To accompany the bot
 - Customizable
-- Slash Commands And Context Menu Based
+- Slash Commands , Buttons & Context Menus Based
 
 ## Install
 
 ```sh
-npm i
+npm i # install all the dependencies from package.json
 ```
 
-## Usage
+## Start
 
 ```sh
-npm run musico #with PM2
+npm run musico # this runs with pm2 however you can opt out of pm2
 ```
 
 ## Run Dev
 
 ```sh
-npm run dev
+npm run dev # uses nodemon , useful for development
 ```
 
 ## Author
 
 👤 **Whirl**
 
-- Website: whirl.codes
+- Website: [whirl.codes](https://whirl.codes)
+- Discord : [Whirl#5402](https//discord.com/users/808332105108553759)
 - Twitter: [@Whirl_21](https://twitter.com/Whirl_21)
 - Github: [@Whirl21](https://github.com/Whirl21)
 
@@ -66,7 +67,7 @@ npm run dev
 
 - [Discord.js](https://discord.js.org)
 - [Discord-Player](https://discord-player.js.org)
-- [Discord-js-Template](https://github.com/NamVr/DiscordBot-Template)
+- [Discordjs-Starter](https://github.com/NamVr/DiscordBot-Template)
 
 ## 🤝 Contributing
 
@@ -74,31 +75,30 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## ⛑ Help
 
-For support, you can join our discord server by clicking [here](https://discord.gg/ph2pCZrpm9) or email me at hello@whirl.codes
+For support, you can join our discord server by clicking [here](https://discord.gg/ph2pCZrpm9) or email me at [hello@whirl.codes](mailto:hello@whirl.codes)
 
 ## 💻 To-Do
 
-| Feature            | Status |
-| ------------------ | ------ |
-| Queue With Buttons | ❌     |
-| Change Lyrics API  | ✔      |
-| Website            | ✔      |
+| Feature                | Status |
+| ---------------------- | ------ |
+| Rewrite Lyrics Command | ✔      |
+| Website                | ✔      |
 
-## Configuration
+## ⚙️ Configuration
 
-| Parameter   | Type     | Description                        |
-| :---------- | :------- | :--------------------------------- |
-| `token`     | `string` | **Required**. Your Bot Token       |
-| `client_id` | `string` | **Required**. Your Bot's Client ID |
+| Parameter  | Type     | Description                        |
+| :--------- | :------- | :--------------------------------- |
+| `botId`    | `string` | **Required**. Your Bot Token       |
+| `botToken` | `string` | **Required**. Your Bot's Client ID |
+| `ownerId`  | `string` | **Required**. Your Id              |
 
-## Show your support
+## 💝 Show your support
 
 Give a ⭐️ if this project helped you!<br>
 Feel Free to 🥢 this on [GitHub](https://github.com/Whirl21/Musico/fork)<br>
-Check Out my [🌐](https://whirl.codes) if you like this project!<br>
-Consider joining my [💬](https://discord.gg/ygGx8KJ65Y) if this project helped you
 
-## License
+## 📜 License
 
-This project is licensed under the [GPL 2]() license.<BR>
+Copyright ©️ 2021 Whirl. All rights reserved.<br>
+This project is licensed under the [GPL 2](https://github.com/Whirl21/Musico/blob/musico/LICENSE) license.<BR>
 Please refer to the license [file](https://github.com/Whirl21/Musico/blob/musico/LICENSE) for more.

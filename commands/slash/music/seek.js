@@ -6,7 +6,7 @@ module.exports = {
 		.addStringOption((option) =>
 			option
 				.setName("time")
-				.setDescription("The time to skip to")
+				.setDescription("The time to skip to in seconds")
 				.setRequired(true)
 		),
 	execute: async (interaction) => {
@@ -35,10 +35,30 @@ module.exports = {
 				ephemeral: true,
 			});
 		if (queue) {
-			let time = interaction.options.getInteger("time") * 100;
+			const db = interaction.client.db;
+			const guild = interaction.guildId;
+			const roll = db.get(`${guild}_dj_role`);
+
+			if (
+				interaction.user.id !== queue.nowPlaying().requestedBy.id &&
+				!interaction.member.roles.cache.has(roll)
+			) {
+				return interaction.editReply(
+					":x: | This command can only be used by the person who played the current track or someone who has your guild's DJ role"
+				);
+			}
+			if (
+				interaction.user.id !== queue.nowPlaying().requestedBy.id &&
+				!interaction.member.roles.cache.has(roll)
+			) {
+				return interaction.editReply(
+					":x: | This command can only be used by the person who played the current track or someone who has your guild's DJ role"
+				);
+			}
+			let time = parseInt(interaction.options.getString("time")) * 100;
 
 			let ttr = queue.seek(time);
-			return interaction.reply(
+			return interaction.editReply(
 				ttr
 					? ` ⏩ |  Seeked to ${time / 100} seconds !`
 					: `:x: | Failed to do that !`

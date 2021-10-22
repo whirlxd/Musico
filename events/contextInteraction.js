@@ -50,7 +50,7 @@ module.exports = {
 				return;
 			} catch (err) {
 				console.error(err);
-				await interaction.reply({
+				await interaction.editReply({
 					content: ":x: | An error occurred",
 					ephemeral: true,
 				});

@@ -1,12 +1,5 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-
 module.exports = {
-	// The data needed to register slash commands to Discord.
-	data: new SlashCommandBuilder()
-		.setName("skip")
-		.setDescription("Skip your current playing song"),
-
-	async execute(interaction) {
+	execute: async (interaction) => {
 		const player = interaction.client.player;
 
 		if (!interaction.member.voice.channel)

@@ -1,3 +1,4 @@
+const { QueryType } = require("discord-player");
 module.exports = {
 	data: {
 		name: "add_to_queue",
