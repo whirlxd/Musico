@@ -1,0 +1,20 @@
+// https://code.visualstudio.com/docs/editor/userdefinedsnippets#_project-snippet-scope
+{
+	"slash-command": {
+		"prefix": "slash.command",
+		"body": [
+			"const { SlashCommandBuilder } = require(\"@discordjs/builders\");",
+			"",
+			"module.exports = {",
+			"	// The data needed to register slash co",
+			"	data: new SlashCommandBuilder()",
+			"		.setName(${1:example command})",
+			"		.setDescription(${1:example description}),",
+			"async execute(interaction){",
+			"${1://example code}",
+			"}}",
+			"		"
+		],
+		"description": "slash-command"
+	}
+}
