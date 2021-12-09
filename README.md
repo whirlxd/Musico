@@ -1,4 +1,6 @@
 <h1 align="center">Musico 🎶</h1>
+<div align="center">
+<img src="/musico.gif" alt="musico" align="center" width="300" height="150"></div>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-3.5.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
@@ -59,7 +61,7 @@ npm run dev # uses nodemon , useful for development
 👤 **Whirl**
 
 - Website: [whirl.codes](https://whirl.codes)
-- Discord : [Whirl#5402](https//discord.com/users/808332105108553759)
+- Discord : [Whirl#0007](https//discord.com/users/808332105108553759)
 - Twitter: [@Whirl_21](https://twitter.com/Whirl_21)
 - Github: [@Whirl21](https://github.com/Whirl21)
 
