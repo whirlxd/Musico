@@ -29,7 +29,6 @@
 
 ### 🎨 [Examples](https://github.com/Whirl21/Musico/tree/master/examples)
 
-### 📗 [Guide](https://whirl.codes/blog/musico-guide)
 
 ## ✨Features
 
