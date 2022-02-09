@@ -60,7 +60,7 @@ npm run dev # uses nodemon , useful for development
 👤 **Whirl**
 
 - Website: [whirl.codes](https://whirl.codes)
-- Discord : [Whirl#0007](https//discord.com/users/808332105108553759)
+- Discord : [Whirl#3363](https//discord.com/users/808332105108553759)
 - Twitter: [@Whirl_21](https://twitter.com/Whirl_21)
 - Github: [@Whirl21](https://github.com/Whirl21)
 
