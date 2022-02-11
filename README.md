@@ -29,13 +29,12 @@
 
 ### 🎨 [Examples](https://github.com/Whirl21/Musico/tree/master/examples)
 
-
 ## ✨Features
 
 - High Quality & Fast
 - Small Website To accompany the bot
 - Customizable
-- Slash Commands , Buttons & Context Menus Based
+- Slash Commands , Buttons & Context Menu Based
 
 ## Install
 
@@ -49,7 +48,7 @@ npm i # install all the dependencies from package.json
 npm run musico # this runs with pm2 however you can opt out of pm2
 ```
 
-## Run Dev
+## Run In Development
 
 ```sh
 npm run dev # uses nodemon , useful for development
@@ -76,14 +75,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## ⛑ Help
 
-For support, you can join our discord server by clicking [here](https://discord.gg/ph2pCZrpm9) or email me at [hello@whirl.codes](mailto:hello@whirl.codes)
-
-## 💻 To-Do
-
-| Feature                | Status |
-| ---------------------- | ------ |
-| Rewrite Lyrics Command | ✔      |
-| Website                | ✔      |
+For support, you can open and issue on the repo itself or email me at [hello@whirl.codes](mailto:hello@whirl.codes)
 
 ## ⚙️ Configuration
 
@@ -100,6 +92,6 @@ Feel Free to 🥢 this on [GitHub](https://github.com/Whirl21/Musico/fork)<br>
 
 ## 📜 License
 
-Copyright ©️ 2021 Whirl. All rights reserved.<br>
+Copyright ©️ 2022 Whirl. All rights reserved.<br>
 This project is licensed under the [GPL 2](https://github.com/Whirl21/Musico/blob/musico/LICENSE) license.<BR>
 Please refer to the license [file](https://github.com/Whirl21/Musico/blob/musico/LICENSE) for more.

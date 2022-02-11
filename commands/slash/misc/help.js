@@ -23,9 +23,9 @@ module.exports = {
 				`https://discord.com/users/${interaction.user.id}`
 			)
 			.setDescription(
-				`Heyy! I am ${client.user.username}! I am a bot programmed by **[Whirl](https://github.com/Whirl21)** to help you with playing music.\n I support Spotify/YouTube/SoundCloud and my commands are listed below -`
+				`Hey there! I am ${client.user.username}, a  bot programmed by **[Whirl](https://github.com/Whirl21)** to help you with playing music.\n I support Spotify/YouTube/SoundCloud and my commands are listed below -`
 			)
-			.setTitle("**Musico**")
+			.setTitle(`**${client.user.username}**`)
 			.setThumbnail(client.user.avatarURL({ dynamic: true }))
 			.setFooter(
 				`${client.user.username.toUpperCase()} ${new Date().getFullYear()}`,
