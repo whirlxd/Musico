@@ -1,4 +1,5 @@
 const { QueryType } = require("discord-player");
+const { MessageEmbed } = require("discord.js");
 module.exports = {
 	data: {
 		name: "add_to_queue",
@@ -6,7 +7,7 @@ module.exports = {
 	},
 
 	async execute(interaction) {
-		const query = interaction.options.getMessage("message");
+		const query = interaction.options.getMessage("message").content;
 
 		await interaction.deferReply();
 		if (!interaction.member.voice.channelId)
@@ -60,8 +61,9 @@ module.exports = {
 				`🎶 | New ${track.playlist ? "playlist" : "song"} Added to queue`
 			);
 		if (!track.playlist) {
-			playEmbed.setThumbnail(track.thumbnail);
-			playEmbed.setDescription(`${track.title}`);
+			const tr = track.tracks[0];
+			playEmbed.setThumbnail(tr.thumbnail);
+			playEmbed.setDescription(`${tr.title}`);
 
 			playEmbed.setFooter(
 				`Requested by ${track.requestedBy.username} | Made By Whirl#0021`
