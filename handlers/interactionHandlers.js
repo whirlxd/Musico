@@ -14,7 +14,7 @@ const handleInteractions = (client, filePath) => {
 
 		for (const commandFile of commandFiles) {
 			const command = require(`${filePath}/commands/slash/${module}/${commandFile}`);
-			client.slashCommands.set(command.data.name, command);
+			client.slashCommands.set(command.data.Name, command);
 		}
 	}
 
