@@ -1,46 +1,50 @@
 const chalk = require("chalk");
+
 module.exports = {
-	name: "interactionCreate",
+    name: "interactionCreate",
 
-	async execute(interaction) {
-		// Deconstructed client from interaction object.
-		const { client, guildId: guild, channelId } = interaction;
+    async execute(interaction) {
+        // Deconstructed client from interaction object.
+        const { client, guildId, channelId } = interaction;
 
-		// Checks if the interaction is a command (to prevent weird bugs)
+        // If it's not a valid command, just return
+        if (!interaction.isCommand()) return;
 
-		if (!interaction.isCommand()) return;
-		if (interaction.client.db.has(`${guild}_cmd_channel`)) {
-			const cmdChannel = interaction.client.db.get(`${guild}_cmd_channel`);
-			if (cmdChannel !== channelId)
-				return interaction.reply(
-					`My commands are limited to <#${cmdChannel} in your guild!`
-				);
-		}
-		const roll = interaction.client.db.has(`${guild}_bl_role`);
-		if (roll) {
-			const rolee = interaction.client.db.get(`${guild}_bl_role`);
-			if (interaction.member.roles.cache.some((role) => role.id === rolee)) {
-				return interaction.reply(`You have been blacklisted from using me!`);
-			}
-		}
 
-		const command = client.slashCommands.get(interaction.commandName);
+        // If the bot's commands are limited to a certain channel, warn them if it's wrong
+        const hasChan = await interaction.client.db.has(`${guildId}_cmd_channel`);
+        if (hasChan) {
+            const cmdChannelId = await interaction.client.db.get(`${guildId}_cmd_channel`);
+            if (cmdChannelId !== channelId) {
+                return interaction.reply({content: `My commands are limited to <#${cmdChannelId}> in your guild!`, ephemeral: true});
+            }
+        }
 
-		// If the interaction is not a command in cache.
+        // If the user has been blacklisted,
+        const blRoleId = interaction.client.db.has(`${guildId}_bl_role`);
+        if (blRoleId) {
+            const blRole = interaction.client.db.get(`${guildId}_bl_role`);
+            if (interaction.member.roles.cache.some((role) => role.id === blRole)) {
+                return interaction.reply({content: "You have been blacklisted from using me!", ephemeral: true});
+            }
+        }
 
-		if (!command) return;
+        // Grab the command info
+        const command = client.slashCommands.get(interaction.commandName);
 
-		// A try to executes the interaction.
+        // If the interaction is not a viable command, don't do anything
+        if (!command) return;
 
-		try {
-			await interaction.deferReply();
-			await command.execute(interaction);
-		} catch (err) {
-			console.log(chalk.redBright.bold(`[ERROR]\n`) + err);
-			await interaction.editReply({
-				content: ":x: | An error occurred",
-				ephemeral: true,
-			});
-		}
-	},
+        // Try to execute the interaction
+        try {
+            await interaction.deferReply();
+            await command.execute(interaction);
+        } catch (err) {
+            console.log(chalk.redBright.bold("[ERROR]\n") + err);
+            await interaction.editReply({
+                content: ":x: | An error occurred",
+                ephemeral: true,
+            });
+        }
+    },
 };

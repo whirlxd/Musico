@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const clean = require("../../../clean").default;
-const { MessageEmbed: Embed } = require("discord.js");
+const { EmbedBuilder: Embed } = require("discord.js");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("eval")
