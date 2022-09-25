@@ -73,7 +73,6 @@ module.exports = {
                         });
                     })
                     .catch((error) => {
-                        console.log(error);
                         interaction.editReply({
                             content: ":x: | I can't send you a DM",
                             ephemeral: true,

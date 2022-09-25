@@ -67,7 +67,6 @@ module.exports = {
         });
 
         if (!track || !track.tracks.length) {
-            console.log(inspect(track, {depth: 5}));
             return await interaction.editReply({
                 content: `❌ | No Video/Song/Playlist was found when searching for : ${track}`,
                 ephemeral: true,
@@ -81,7 +80,6 @@ module.exports = {
             );
         if (!track.playlist) {
             const tr = track.tracks[0];
-            console.log(`[musico /play] Playing: ${tr.title}`);
             playEmbed.setThumbnail(tr.thumbnail);
             playEmbed.setDescription(`${tr.title}`);
         }
