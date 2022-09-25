@@ -23,7 +23,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 const { Collection, GatewayIntentBits, Client } = require("discord.js");
 const { Player } = require("discord-player");
-// const { Player } = require("discord-portable-player");
 const { QuickDB } = require("quick.db");
 const db = new QuickDB();
 const config = require("./musico.config");

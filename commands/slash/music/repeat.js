@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { QueueRepeatMode } = require("discord-portable-player");
+const { QueueRepeatMode } = require("discord--player");
 /**
  * @Param {String}
  */
