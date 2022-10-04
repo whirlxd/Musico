@@ -1,7 +1,7 @@
 // Deconstructed the constants we need in this file.
 
 const { EmbedBuilder: MessageEmbed } = require("discord.js");
-const { QueryType } = require("discord--player");
+const { QueryType } = require("discord-player");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const {inspect} = require("util");
 

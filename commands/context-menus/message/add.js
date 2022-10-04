@@ -1,4 +1,4 @@
-const { QueryType } = require("discord--player");
+const { QueryType } = require("discord-player");
 const { EmbedBuilder: MessageEmbed } = require("discord.js");
 module.exports = {
     data: {

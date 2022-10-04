@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { QueueRepeatMode } = require("discord--player");
+const { QueueRepeatMode } = require("discord-player");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("autoplay")
