@@ -1,8 +1,8 @@
 const chalk = require("chalk");
 module.exports = {
-	name: "warn",
+    name: "warn",
 
-	execute(warning) {
-		console.log(chalk.yellowBright.bold(`[WARNING]\n`) + warning);
-	},
+    execute(warning) {
+        console.log(chalk.yellowBright.bold("[WARNING]\n") + warning);
+    },
 };

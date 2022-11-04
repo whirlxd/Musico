@@ -1,6 +1,7 @@
 # Custom
 json.sqlite
 musico.config.json
+musico.config.js
 .cache
 # Logs
 logs

@@ -1,4 +1,4 @@
-const { MessageButton: Btn, MessageActionRow: Row } = require("discord.js");
+const { ButtonBuilder: Btn, ActionRowBuilder: Row, ButtonStyle } = require("discord.js");
 module.exports = {
 	execute: async (interaction) => {
 		const player = interaction.client.player;
@@ -7,22 +7,22 @@ module.exports = {
 				.setCustomId("eight_d")
 				.setEmoji(`🎱`)
 				.setLabel("8D")
-				.setStyle("PRIMARY"),
+				.setStyle(ButtonStyle.Primary),
 			new Btn()
 				.setCustomId("bassboost")
 				.setEmoji(`🎧`)
 				.setLabel("BassBoost")
-				.setStyle("PRIMARY"),
+				.setStyle(ButtonStyle.Primary),
 			new Btn()
 				.setCustomId("reverse")
 				.setEmoji(`◀️`)
 				.setLabel("Reverse")
-				.setStyle("PRIMARY"),
+				.setStyle(ButtonStyle.Primary),
 			new Btn()
 				.setCustomId("earrape")
 				.setEmoji(`🧨`)
 				.setLabel("Earrape")
-				.setStyle("PRIMARY")
+				.setStyle(ButtonStyle.Primary),
 		);
 		if (!interaction.member.voice.channel)
 			return interaction.editReply({

@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const fetch = require("node-fetch");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder: MessageEmbed } = require("discord.js");
 const finder = require("lyrics-finder");
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,29 +7,32 @@ module.exports = {
 		.setDescription("Get the lyrics of current playing song!"),
 	execute: async (interaction) => {
 		const player = interaction.client.player;
-		if (!interaction.member.voice.channel)
+		if (!interaction.member.voice.channel) {
 			return interaction.editReply({
-				content: `:x:|  You need to be in a voice channel to do that!`,
+				content: ":x:|  You need to be in a voice channel to do that!",
 				ephemeral: true,
 			});
+		}
 
 		if (
-			interaction.guild.me.voice.channel &&
+			interaction.guild.members.me.voice.channel &&
 			interaction.member.voice.channel.id !==
-				interaction.guild.me.voice.channel.id
-		)
+				interaction.guild.members.me.voice.channel.id
+		) {
 			return interaction.editReply({
-				content: `❌ | You need to be in the same voice channel as me to do that`,
+				content: "❌ | You need to be in the same voice channel as me to do that",
 				ephemeral: true,
 			});
+		}
 
 		const queue = player.getQueue(interaction.guild.id);
 
-		if (!queue || !queue.playing)
+		if (!queue || !queue.playing) {
 			return interaction.editReply({
-				content: `:x: | There is no music playing in this guild !`,
+				content: ":x: | There is no music playing in this guild !",
 				ephemeral: true,
 			});
+		}
 		if (queue) {
 			let lyrics = null;
 			let track = queue.nowPlaying();
@@ -38,22 +40,24 @@ module.exports = {
 
 			try {
 				lyrics = await finder(track, "");
-				if (!lyrics) lyrics = `:x: | No lyrics found.`;
-			} catch (error) {
-				lyrics = `:x: No Lyrics Found`;
+				if (!lyrics) lyrics = ":x: | No lyrics found.";
+			}
+			catch (error) {
+				lyrics = ":x: No Lyrics Found";
 			}
 
-			let lyricsEmbed = new MessageEmbed()
+			const lyricsEmbed = new MessageEmbed()
 				.setTitle(`Lyrics for ${track}`)
 				.setDescription(lyrics)
-				.setColor(`RANDOM`)
+				.setColor("Random")
 				.setThumbnail(`${queue.nowPlaying().thumbnail}`);
 
-			if (lyricsEmbed.description.length >= 4096)
-				lyricsEmbed.description = `${lyricsEmbed.description.substr(
+			if (lyricsEmbed.toJSON().description.length >= 4096) {
+				lyricsEmbed.setDescription(`${lyricsEmbed.toJSON().description.substring(
 					0,
-					4095
-				)}...`;
+					4095,
+				)}...`);
+			}
 			return interaction.editReply({
 				embeds: [lyricsEmbed],
 			});

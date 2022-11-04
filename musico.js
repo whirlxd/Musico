@@ -21,9 +21,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 /**
  * Ah yes requiring every fucking thing from this universe
  */
-const { Collection, Intents, Client } = require("discord.js");
+const { Collection, GatewayIntentBits, Client } = require("discord.js");
 const { Player } = require("discord-player");
-const db = require("quick.db");
+const { QuickDB } = require("quick.db");
+const db = new QuickDB();
 const config = require("./musico.config");
 const handleEvents = require("./handlers/eventsHandler");
 const handleInteractions = require("./handlers/interactionHandlers");
@@ -31,21 +32,27 @@ const registrar = require("./handlers/registrar");
 const handlePlayer = require("./handlers/playerEventsHandler");
 
 const client = new Client({
-	intents: [
-		//yeah this sux
-		Intents.FLAGS.GUILDS,
-		Intents.FLAGS.GUILD_MESSAGES,
-		Intents.FLAGS.GUILD_VOICE_STATES,
-	],
+    intents: [
+        // Yeah this sux
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildVoiceStates
+    ],
 });
 /**
  * Global variables< Client and Player... etc.>
  */
-const players = new Player(client);
+const player = new Player(client,
+    {
+        leaveOnEnd: false,
+        leaveOnEmpty: false
+    }
+);
+
 client.slashCommands = new Collection();
 client.contextCommands = new Collection();
 client.db = db;
-client.player = players;
+client.player = player;
 client.config = config;
 /**
  * Handle events , handle interactions and register commands
