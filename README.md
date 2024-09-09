@@ -25,9 +25,9 @@
 
 > An epik discord music bot made to spice up your discord experience with amazing commands and filters!
 
-### 🏠 [Homepage](https://musico.whirl.codes)
+### 🏠 [Homepage](https://whirlxd.xyz/musico)
 
-### 🎨 [Examples](https://github.com/Whirl21/Musico/tree/master/examples)
+### 🎨 [Examples](https://github.com/whirlxd/Musico/tree/master/examples)
 
 ## ✨Features
 
@@ -58,10 +58,9 @@ npm run dev # uses nodemon , useful for development
 
 👤 **Whirl**
 
-- Website: [whirl.codes](https://whirl.codes)
+- Website: [whirl.codes](https://whirlxd.xyz)
 - Discord : [Whirl#3363](https//discord.com/users/808332105108553759)
-- Twitter: [@Whirl_21](https://twitter.com/Whirl_21)
-- Github: [@Whirl21](https://github.com/Whirl21)
+- Twitter: [@Whirlxd](https://twitter.com/whirlxd)
 
 ## 🐱‍💻 Acknowledgements
 
@@ -88,7 +87,7 @@ For support, you can open and issue on the repo itself or email me at [hello@whi
 ## 💝 Show your support
 
 Give a ⭐️ if this project helped you!<br>
-Feel Free to 🥢 this on [GitHub](https://github.com/Whirl21/Musico/fork)<br>
+Feel Free to 🥢 this on [GitHub](https://github.com/Whirlxd/Musico/fork)<br>
 
 ## 📜 License
 
