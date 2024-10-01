@@ -10,20 +10,20 @@
     <img alt="Node v16.6" src="https://img.shields.io/node/v/discord.js" />
   </a>
    <a href="#" target="_blank">
-    <img alt="Size" src="https://img.shields.io/github/repo-size/whirl21/musico" />
+    <img alt="Size" src="https://img.shields.io/github/repo-size/whirlxd/musico" />
   </a>
     <a href="#" target="_blank">
-    <img alt="Stars" src="https://img.shields.io/github/stars/whirl21/musico?style=social" />
+    <img alt="Stars" src="https://img.shields.io/github/stars/whirlxd/musico?style=social" />
   </a>
     <a href="#" target="_blank">
-    <img alt="Forks" src="https://img.shields.io/github/forks/whirl21/musico?style=social" />
+    <img alt="Forks" src="https://img.shields.io/github/forks/whirlxd/musico?style=social" />
   </a>
     <a href="#" target="_blank">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/whirl21/musico" />
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/whirlxd/musico" />
   </a>
 </p>
 
-> An epik discord music bot made to spice up your discord experience with amazing commands and filters!
+> An epic discord music bot made to spice up your discord experience with amazing commands and filters
 
 ### 🏠 [Homepage](https://whirlxd.xyz/musico)
 
